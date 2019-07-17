@@ -1,0 +1,40 @@
+﻿<c:ExtendedContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       xmlns:c="clr-namespace:TestApp.Controls;assembly=TestApp"
+                       x:Class="TestApp.View.SignUpPage" Title="{Binding Title}"
+                       StartColor="{DynamicResource Color.Background.Even}" EndColor="{DynamicResource Color.Background.Odd}">
+
+    <Grid x:Name="MainGrid">
+        <Grid IsEnabled="{Binding IsWorking, Mode=OneWay}" Opacity="{Binding Opacity, Mode=TwoWay}" HorizontalOptions="{StaticResource Aligment.Center}"
+              WidthRequest="{StaticResource Size.Near1000}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <c:StatusBand Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" x:Name="StatusBand" Mode="Warning"/>
+
+            <ProgressBar Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="5" Progress="{Binding CurrentView.Progress}" Margin="5"/>
+
+            <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding CurrentView.Header}" FontFamily="{StaticResource Font.Medium}" 
+                   TextColor="{DynamicResource Color.Label.Foreground.Special}" FontSize="22" Margin="10,8" 
+                   IsVisible="{Binding CurrentView.Header, Converter={StaticResource Converter.StringToBool}, FallbackValue=false}"/>
+
+            <ContentView Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" x:Name="MainContentView" Content="{Binding CurrentView, Mode=OneWay}"
+                         VerticalOptions="Fill" HorizontalOptions="Fill"/>
+
+            <Button Grid.Row="4" Grid.Column="0" Text="{DynamicResource S.SignUp.Back}" Command="{Binding BackCommand}" Margin="5" IsVisible="{Binding CurrentView.IsInteractive}"/>
+            <Button Grid.Row="4" Grid.Column="1" Text="{Binding CurrentView.ActionTitle, FallbackValue=Continue}" Command="{Binding NextCommand}" Margin="5" 
+                    IsVisible="{Binding CurrentView.IsInteractive}" Style="{DynamicResource Style.Button.Main}"/>
+        </Grid>
+
+        <ActivityIndicator x:Name="ActivityIndicator" HorizontalOptions="Center" VerticalOptions="Center" IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"/>
+    </Grid>
+</c:ExtendedContentPage>

@@ -1,0 +1,76 @@
+﻿<p:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:p="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:a="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+             xmlns:k="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:effects="clr-namespace:Sharpnado.Presentation.Forms.Effects;assembly=Sharpnado.Presentation.Forms"
+             xmlns:c="clr-namespace:TestApp.Controls;assembly=TestApp"
+             x:Class="TestApp.View.Dialogs.MainMenuDialog"
+             x:Name="MainMenuPopupPage" CloseWhenBackgroundIsClicked="False">
+
+    <p:PopupPage.Animation>
+        <a:MoveAnimation PositionIn="Top" PositionOut="Top" DurationIn="400" DurationOut="300" EasingIn="SinOut" EasingOut="SinIn"/>
+    </p:PopupPage.Animation>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+
+            <c:RoundedContentView Grid.Row="0" Grid.Column="1" Margin="10" WidthRequest="40" HeightRequest="40" 
+                                      CornerRadius="10" IsClippedToBounds="True" BackgroundColor="{DynamicResource Color.Button.Background.Dangerous}"
+                                      effects:ViewEffect.TouchFeedbackColor="{DynamicResource Color.Button.Background}"
+                                      VerticalOptions="CenterAndExpand" effects:TapCommandEffect.Tap="{Binding ProfileCommand}">
+                <c:FontIconLabel Text="{StaticResource Icon.Close}" TextColor="{DynamicResource Color.Button.Foreground.Contrast}" FontSize="24"
+                                     VerticalOptions="Center" HorizontalOptions="Center"/>
+            </c:RoundedContentView>
+        </Grid>
+
+        <c:RoundedContentView Grid.Row="1" x:Name="MainPancakeView" VerticalOptions="EndAndExpand" HorizontalOptions="Fill" 
+                              Margin="3" Padding="12" IsClippedToBounds="True" CornerRadius="10"
+                              BackgroundColor="{DynamicResource Color.Background.Odd}">
+            <StackLayout>
+                <Grid x:Name="ModeGrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Button Grid.Row="0" x:Name="OptionsButton" Text="Options" Clicked="Options_Clicked">
+                        <Button.ImageSource>
+                            <FontImageSource FontFamily="{StaticResource Font.Glyph}" Glyph="{StaticResource Icon.Settings}" Size="22" 
+                                             Color="{DynamicResource Color.Button.Foreground}"/>
+                        </Button.ImageSource>
+                    </Button>
+
+                    <Button Grid.Row="1" x:Name="LogoutButton" Text="Logout" Style="{StaticResource Style.Button.Dangerous}" Clicked="Logout_Clicked">
+                        <Button.ImageSource>
+                            <FontImageSource FontFamily="{StaticResource Font.Glyph}" Glyph="{StaticResource Icon.Logout}" Size="22" 
+                                             Color="{DynamicResource Color.Button.Foreground.Contrast}"/>
+                        </Button.ImageSource>
+                    </Button>
+                </Grid>
+            </StackLayout>
+        </c:RoundedContentView>
+
+        <Grid Grid.Row="2" MinimumHeightRequest="40">
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Tapped="Cancel_Clicked"/>
+            </Grid.GestureRecognizers>
+
+            <k:PancakeView x:Name="InfoPancake" InputTransparent="True" Opacity="1" CornerRadius="10" Padding="5"
+                           VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="{DynamicResource Color.Background.Even}">
+                <Label x:Name="InfoLabel" Text="Click on the background to dismiss" TextColor="{DynamicResource Color.Label.Foreground.Fade}"/>
+            </k:PancakeView>
+        </Grid>
+    </Grid>
+</p:PopupPage>

@@ -1,0 +1,19 @@
+﻿<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <!--To use a new line: &#x0d; xml:space="preserve"-->
+    <!--Or CarriageReturn + NewLine: &#x0d;&#x0a; or &#10;--> 
+    <!--Special texts like {0}, are place holders for dynamic values, such as numbers.-->
+
+    <!--Common • Dialogs-->
+    <x:String x:Key="S.Dialog.ClickToDismiss">Click on the background to dismiss</x:String>
+    <x:String x:Key="S.Dialog.Cancel">Cancel</x:String>
+
+    <!--Startup-->
+    <x:String x:Key="S.SignUp">Sign Up</x:String>
+    <x:String x:Key="S.SignIn">Sign In</x:String>
+    
+    <!--Sign Up-->
+    <x:String x:Key="S.SignUp.Back">Back</x:String>
+    <x:String x:Key="S.SignUp.Continue">Continue</x:String>
+</ResourceDictionary>

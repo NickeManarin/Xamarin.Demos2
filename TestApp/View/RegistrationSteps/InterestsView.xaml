@@ -1,0 +1,90 @@
+﻿<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:c="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.TagEntryView"
+             xmlns:o="clr-namespace:TestApp.Controls;assembly=TestApp"
+             xmlns:p="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Class="TestApp.View.RegistrationSteps.InterestsView">
+
+    <Grid VerticalOptions="CenterAndExpand" Margin="20,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Text="Interests" Margin="0,10,0,5" VerticalOptions="End"/>
+        <p:PancakeView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" CornerRadius="5" Padding="5" HasShadow="False" VerticalOptions="EndAndExpand"
+                       BackgroundColor="{DynamicResource Color.Input.Background}" IsClippedToBounds="True">
+            <ScrollView Orientation="Vertical">
+                <Grid>
+                    <c:TagEntryView x:Name="InterestsTagEntryView" VerticalOptions="StartAndExpand" HeightRequest="-1" BackgroundColor="Transparent"
+                                    TagItems="{Binding InterestList}" TagTappedCommand="{Binding RemoveInterestCommand}" ShowEntryBox="False">
+                        <c:TagEntryView.TagItemTemplate>
+                            <DataTemplate>
+                                <p:PancakeView BackgroundColor="{DynamicResource Color.Tags.Background}" Padding="5" CornerRadius="5">
+                                    <p:PancakeView.Triggers>
+                                        <DataTrigger TargetType="p:PancakeView" Binding="{Binding Path=WasBanned}" Value="True">
+                                            <Setter Property="BackgroundColor" Value="#FF0000"/>
+                                        </DataTrigger>
+                                    </p:PancakeView.Triggers>
+
+                                    <StackLayout Orientation="Horizontal">
+                                        <o:FontIconLabel Text="{StaticResource Icon.Hash}" TextColor="{DynamicResource Color.Tags.Foreground}"
+                                                         FontSize="14" Margin="3,2" VerticalOptions="Center"/>
+                                        <Label Text="{Binding Content}" TextColor="{DynamicResource Color.Tags.Foreground}" Margin="0,3" VerticalOptions="Center"/>
+                                        <o:FontIconLabel Text="{StaticResource Icon.Close}" TextColor="{DynamicResource Color.Tags.Foreground}"
+                                                         FontSize="14" Margin="6,2,3,2" VerticalOptions="Center"/>
+                                    </StackLayout>
+                                </p:PancakeView>
+                            </DataTemplate>
+                        </c:TagEntryView.TagItemTemplate>
+                    </c:TagEntryView>
+
+                    <Label Text="No interest added or selected yet..." HorizontalTextAlignment="Center" BackgroundColor="Transparent" Margin="5"
+                           TextColor="{DynamicResource Color.Label.Foreground.Weak}" VerticalOptions="Center" HorizontalOptions="Center"
+                           IsVisible="{Binding IsInterestListEmpty}"/>
+                </Grid>
+            </ScrollView>
+        </p:PancakeView>
+        
+        <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Text="Add a new interest" Margin="0,20,0,5"/>
+        <Entry Grid.Row="3" Grid.Column="0" Text="{Binding NewInterest}" Placeholder="New interest" ReturnType="Done" Margin="0,5,5,5"/>
+
+        <Button Grid.Row="3" Grid.Column="1" Text="Add" Command="{Binding AddInterestCommand}" Margin="5,0,0,0" Padding="3" VerticalOptions="Center"/>
+
+        <p:PancakeView Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" CornerRadius="5" Margin="0,10" Padding="5" HasShadow="False"
+                       BackgroundColor="{DynamicResource Color.Input.Background}" IsClippedToBounds="True" VerticalOptions="StartAndExpand">
+            <ScrollView Orientation="Vertical">
+                <Grid>
+                    <c:TagEntryView VerticalOptions="Center" TagItems="{Binding SuggestionList}" HeightRequest="-1" Margin="5"
+                                    TagTappedCommand="{Binding AddInterestCommand}" ShowEntryBox="False" BackgroundColor="Transparent">
+                        <c:TagEntryView.TagItemTemplate>
+                            <DataTemplate>
+                                <p:PancakeView BackgroundColor="{DynamicResource Color.Tags.Background.New}" Padding="5" CornerRadius="5">
+                                    <StackLayout Orientation="Horizontal">
+                                        <o:FontIconLabel Text="{StaticResource Icon.Hash}" TextColor="{DynamicResource Color.Tags.Foreground.New}"
+                                                         FontSize="14" Margin="3,2" VerticalOptions="Center"/>
+                                        <Label Text="{Binding Content}" TextColor="Black" Margin="0,3" VerticalOptions="Center"/>
+                                        <o:FontIconLabel Text="{StaticResource Icon.Plus}" TextColor="{DynamicResource Color.Tags.Foreground.New}"
+                                                         FontSize="14" Margin="6,2,3,2" VerticalOptions="Center"/>
+                                    </StackLayout>
+                                </p:PancakeView>
+                            </DataTemplate>
+                        </c:TagEntryView.TagItemTemplate>
+                    </c:TagEntryView>
+
+                    <Label Text="Loading suggestions..." HorizontalTextAlignment="Center" BackgroundColor="Transparent" Margin="5"
+                           TextColor="{DynamicResource Color.Label.Foreground.Weak}" VerticalOptions="Center" HorizontalOptions="Center"
+                           IsVisible="{Binding IsSuggestionListEmpty}"/>
+                </Grid>
+            </ScrollView>
+        </p:PancakeView>
+    </Grid>
+</ContentView>

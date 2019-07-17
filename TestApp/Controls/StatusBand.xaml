@@ -1,0 +1,23 @@
+﻿<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:e="clr-namespace:Sharpnado.Presentation.Forms.Effects;assembly=Sharpnado.Presentation.Forms"
+             x:Class="TestApp.Controls.StatusBand"
+             VerticalOptions="StartAndExpand" BackgroundColor="{DynamicResource Color.StatusBand.Info}" IsVisible="False" Opacity="0">
+
+    <Grid VerticalOptions="FillAndExpand">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Column="0" Text="{Binding Text, Mode=OneWay}" TextColor="{DynamicResource Color.StatusBand.Foreground}"
+               FontFamily="{StaticResource Font.Normal}" Margin="5,5,3,5" VerticalOptions="CenterAndExpand"/>
+
+        <Button Grid.Column="1" Style="{StaticResource Style.Button.Transparent}" WidthRequest="24" VerticalOptions="Fill" HorizontalOptions="CenterAndExpand" Margin="2"
+                e:ViewEffect.TouchFeedbackColor="{DynamicResource Color.Button.Background}" Clicked="Hide_Clicked">
+            <Button.ImageSource>
+                <FontImageSource FontFamily="{StaticResource Font.Glyph}" Glyph="{StaticResource Icon.Close}" Size="24" Color="{DynamicResource Color.StatusBand.Foreground}"/>
+            </Button.ImageSource>
+        </Button>
+    </Grid>
+</ContentView>

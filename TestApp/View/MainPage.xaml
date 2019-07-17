@@ -1,0 +1,27 @@
+﻿<c:ExtendedContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       xmlns:s="clr-namespace:MLToolkit.Forms.SwipeCardView;assembly=MLToolkit.Forms.SwipeCardView"
+                       xmlns:c="clr-namespace:TestApp.Controls;assembly=TestApp"
+                       xmlns:controls="clr-namespace:TestApp.Controls;assembly=TestApp"
+                       x:Class="TestApp.View.MainPage" Title="{Binding Title}"
+                       StartColor="{DynamicResource Color.Background.Even}" EndColor="{DynamicResource Color.Background.Odd}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Grid.RowSpan="2" Margin="0,0,0,100" BackgroundColor="#19497A">
+            
+
+
+        </Grid>
+
+        <!--What to show here?-->
+
+        <!--Footer-->
+    </Grid>
+</c:ExtendedContentPage>

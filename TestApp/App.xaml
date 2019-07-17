@@ -1,0 +1,195 @@
+﻿<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:c="clr-namespace:TestApp.Converters;assembly=TestApp"
+             xmlns:n="clr-namespace:TestApp.Controls;assembly=TestApp"
+             xmlns:d="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.TagEntryView"
+             x:Class="TestApp.App">
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <!--Localization-->
+            <ResourceDictionary Source="Resources/Localizations/Strings_en.xaml"/>
+
+            <!--Colors-->
+            <ResourceDictionary Source="Resources/Themes/Dark.xaml"/>
+            <ResourceDictionary Source="Resources/Themes/Light.xaml"/>
+
+            <!--Other-->
+            <ResourceDictionary Source="Resources/Icons.xaml"/>
+
+            <!--Fonts-->
+            <OnPlatform x:Key="Font.Normal" x:TypeArguments="x:String">
+                <On Platform="Android" Value="Fonts/futura_book.ttf#FuturaBT-Book"/>
+                <On Platform="iOS" Value="FuturaBT-Book"/>
+                <On Platform="WinPhone,UWP,WinRT,Windows" Value="/Assets/Fonts/futura_book.ttf#FuturaBT-Book"/>
+            </OnPlatform>
+
+            <OnPlatform x:Key="Font.Medium" x:TypeArguments="x:String">
+                <On Platform="Android" Value="Fonts/futura_medium.ttf#FuturaBT-Medium"/>
+                <On Platform="iOS" Value="FuturaBT-Medium"/>
+                <On Platform="WinPhone,UWP,WinRT,Windows" Value="/Assets/Fonts/futura_medium.ttf#FuturaBT-Medium"/>
+            </OnPlatform>
+
+            <OnPlatform x:Key="Font.Heavy" x:TypeArguments="x:String">
+                <On Platform="Android" Value="Fonts/futura_heavy.ttf#FuturaBT-Heavy"/>
+                <On Platform="iOS" Value="FuturaBT-Heavy"/>
+                <On Platform="WinPhone,UWP,WinRT,Windows" Value="/Assets/Fonts/futura_heavy.ttf#FuturaBT-Heavy"/>
+            </OnPlatform>
+
+            <OnPlatform x:Key="Font.ExtraBlack" x:TypeArguments="x:String">
+                <On Platform="Android" Value="Fonts/futura_extrablack.ttf#FuturaBT-ExtraBlack"/>
+                <On Platform="iOS" Value="FuturaBT-ExtraBlack"/>
+                <On Platform="WinPhone,UWP,WinRT,Windows" Value="/Assets/Fonts/futura_extrablack.ttf#FuturaBT-ExtraBlack"/>
+            </OnPlatform>
+
+            <OnPlatform x:Key="Font.Glyph" x:TypeArguments="x:String">
+                <On Platform="Android" Value="Fonts/match_icons.ttf#MatchIcons"/>
+                <On Platform="iOS" Value="MatchIcons"/>
+            </OnPlatform>
+
+            <!--Alignments-->
+            <OnIdiom x:Key="Aligment.Center" x:TypeArguments="LayoutOptions" Phone="Fill" Tablet="CenterAndExpand" Desktop="CenterAndExpand"/>
+
+            <!--Sizing-->
+            <OnIdiom x:Key="Size.Near1000" x:TypeArguments="x:Double" Phone="-1" Tablet="500" Desktop="500"/>
+
+            <!--Margin-->
+            <OnIdiom x:Key="Margin.DeviceSafeArea" x:TypeArguments="x:Double" Phone="-1" Tablet="500" Desktop="500"/>
+
+            <!--Converters-->
+            <c:BoolToInvertedBool x:Key="BoolToInvertedBool"/>
+            <c:StringToBool x:Key="Converter.StringToBool"/>
+            <c:StringToUpper x:Key="Conv.StringToUpper"/>
+
+
+            <!--Controls-->
+            <Style TargetType="{x:Type n:ExtendedContentPage}" CanCascade="True" ApplyToDerivedTypes="True">
+                <Setter Property="BackgroundColor" Value="{DynamicResource Color.Background.Even}"/>
+                <Setter Property="StartColor" Value="{DynamicResource Color.Background.Even}"/>
+                <Setter Property="EndColor" Value="{DynamicResource Color.Background.Odd}"/>
+            </Style>
+
+            <Style TargetType="{x:Type StackLayout}">
+                <Setter Property="Spacing" Value="0"/>
+            </Style>
+
+            <Style TargetType="{x:Type Grid}">
+                <Setter Property="RowSpacing" Value="0"/>
+                <Setter Property="ColumnSpacing" Value="0"/>
+            </Style>
+
+            <Style TargetType="{x:Type Label}">
+                <Setter Property="FontFamily" Value="{StaticResource Font.Normal}"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="TextColor" Value="{DynamicResource Color.Label.Foreground}"/>
+            </Style>
+
+            <Style TargetType="{x:Type n:FontIconLabel}">
+                <Setter Property="FontFamily" Value="{StaticResource Font.Glyph}"/>
+                <Setter Property="FontSize" Value="30"/>
+                <Setter Property="TextColor" Value="{DynamicResource Color.Label.Foreground}"/>
+            </Style>
+
+            <Style TargetType="{x:Type Entry}">
+                <Setter Property="BackgroundColor" Value="{DynamicResource Color.Input.Background}"/>
+                <Setter Property="FontFamily" Value="{StaticResource Font.Normal}"/>
+                <Setter Property="HeightRequest" Value="40"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="TextColor" Value="{DynamicResource Color.Input.Foreground}"/>
+                <Setter Property="PlaceholderColor" Value="{DynamicResource Color.Input.Foreground.Placeholder}"/>
+                <Setter Property="Keyboard" Value="Chat"/>
+            </Style>
+
+            <Style TargetType="{x:Type Picker}">
+                <Setter Property="BackgroundColor" Value="{DynamicResource Color.Input.Background}"/>
+                <Setter Property="FontFamily" Value="{StaticResource Font.Normal}"/>
+                <Setter Property="HeightRequest" Value="40"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="TextColor" Value="{DynamicResource Color.Input.Foreground}"/>
+            </Style>
+
+            <Style TargetType="{x:Type DatePicker}">
+                <Setter Property="BackgroundColor" Value="{DynamicResource Color.Input.Background}"/>
+                <Setter Property="FontFamily" Value="{StaticResource Font.Normal}"/>
+                <Setter Property="HeightRequest" Value="40"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="TextColor" Value="{DynamicResource Color.Input.Foreground}"/>
+            </Style>
+
+            <Style TargetType="{x:Type Editor}">
+                <Setter Property="BackgroundColor" Value="{DynamicResource Color.Input.Background}"/>
+                <Setter Property="FontFamily" Value="{StaticResource Font.Normal}"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="TextColor" Value="{DynamicResource Color.Input.Foreground}"/>
+                <Setter Property="PlaceholderColor" Value="{DynamicResource Color.Input.Foreground.Placeholder}"/>
+                <Setter Property="Keyboard" Value="Chat"/>
+            </Style>
+
+            <Style TargetType="{x:Type SearchBar}">
+                <Setter Property="BackgroundColor" Value="{DynamicResource Color.Input.Background}"/>
+                <Setter Property="FontFamily" Value="{StaticResource Font.Normal}"/>
+                <Setter Property="HeightRequest" Value="40"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="TextColor" Value="{DynamicResource Color.Input.Foreground}"/>
+                <Setter Property="PlaceholderColor" Value="{DynamicResource Color.Input.Foreground.Placeholder}"/>
+                <Setter Property="CancelButtonColor" Value="{DynamicResource Color.Input.Foreground}"/>
+            </Style>
+
+            <Style TargetType="{x:Type ActivityIndicator}">
+                <Setter Property="Color" Value="{DynamicResource Color.Progress.Foreground}"/>
+            </Style>
+
+            <Style TargetType="{x:Type ProgressBar}">
+                <Setter Property="ProgressColor" Value="{DynamicResource Color.Progress.Foreground}"/>
+            </Style>
+
+            <Style TargetType="{x:Type Button}" ApplyToDerivedTypes="True">
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="Padding" Value="5"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="CornerRadius" Value="3"/>
+                <Setter Property="MinimumHeightRequest" Value="40"/>
+                <Setter Property="BackgroundColor" Value="{DynamicResource Color.Button.Background}"/>
+                <Setter Property="TextColor" Value="{DynamicResource Color.Button.Foreground}"/>
+                <Setter Property="FontFamily" Value="{StaticResource Font.Heavy}"/>
+
+                <!--<Style.Triggers>
+                    <Trigger TargetType="Button" Property="IsPressed">
+                        <Setter Property="TextColor" Value="DeepPink"/>
+                        <Setter Property="BackgroundColor" Value="DeepPink"/>
+                    </Trigger>
+                </Style.Triggers>-->
+            </Style>
+
+            <Style TargetType="{x:Type d:TagEntryView}">
+                <Setter Property="BackgroundColor" Value="{DynamicResource Color.Input.Background}"/>
+            </Style>
+
+            <Style TargetType="{x:Type n:ExtendedDatePicker}">
+                <Setter Property="BackgroundColor" Value="{DynamicResource Color.Input.Background}"/>
+                <Setter Property="FontFamily" Value="{StaticResource Font.Normal}"/>
+                <Setter Property="HeightRequest" Value="40"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="TextColor" Value="{DynamicResource Color.Input.Foreground}"/>
+                <Setter Property="PlaceholderColor" Value="{DynamicResource Color.Input.Foreground.Placeholder}"/>
+            </Style>
+
+
+            <!--Custom Styles-->
+            <Style x:Key="Style.Button.Main" TargetType="{x:Type Button}">
+                <Setter Property="BackgroundColor" Value="{DynamicResource Color.Button.Background.Main}"/>
+                <Setter Property="TextColor" Value="{DynamicResource Color.Button.Foreground.Contrast}"/>
+            </Style>
+
+            <Style x:Key="Style.Button.Dangerous" TargetType="{x:Type Button}">
+                <Setter Property="BackgroundColor" Value="{DynamicResource Color.Button.Background.Dangerous}"/>
+                <Setter Property="TextColor" Value="{DynamicResource Color.Button.Foreground.Contrast}"/>
+            </Style>
+            
+            <Style x:Key="Style.Button.Transparent" TargetType="{x:Type Button}">
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="TextColor" Value="{DynamicResource Color.Button.Foreground.Contrast}"/>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,65 @@
+﻿<c:ExtendedContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       xmlns:c="clr-namespace:TestApp.Controls;assembly=TestApp"
+                       xmlns:r="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+                       xmlns:p="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+                       x:Class="TestApp.View.StartupPage" Title="{Binding Title}"
+                       StartColor="{DynamicResource Color.Background.Even}" EndColor="{DynamicResource Color.Background.Odd}">
+
+    <Grid x:Name="MainGrid" HorizontalOptions="{StaticResource Aligment.Center}" WidthRequest="{StaticResource Size.Near1000}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HeightRequest="60">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="44"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="2" Padding="0" WidthRequest="40" HeightRequest="35" Style="{StaticResource Style.Button.Transparent}" 
+                    VerticalOptions="CenterAndExpand" Command="{Binding OptionsCommand}">
+                <Button.ImageSource>
+                    <FontImageSource FontFamily="{StaticResource Font.Glyph}" Glyph="{StaticResource Icon.Settings}" Size="22" Color="{DynamicResource Color.Button.Foreground}"/>
+                </Button.ImageSource>
+            </Button>
+        </Grid>
+
+        <r:CarouselViewControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="FillAndExpand" 
+                               HorizontalOptions="FillAndExpand" ItemsSource="{Binding InfoList}" InterPageSpacing="0"
+                               Orientation="Horizontal" ShowIndicators="True" IndicatorsShape="Square" 
+                               CurrentPageIndicatorTintColor="{DynamicResource Color.Caroussel.Foreground.Active}"
+                               IndicatorsTintColor="{DynamicResource Color.Caroussel.Foreground.Inactive}">
+            
+            <r:CarouselViewControl.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="12,12,12,34">
+                        <p:PancakeView CornerRadius="32" BackgroundGradientStartColor="{Binding ColorStart}" BackgroundGradientEndColor="{Binding ColorEnd}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <Label Grid.Row="0" FontFamily="{StaticResource Font.Medium}" TranslationX="{Binding Position}" Text="{Binding Header}" 
+                                       TextColor="#FFFFFF" Margin="24,24,24,0" FontSize="26" FontAttributes="Bold" LineBreakMode="NoWrap" />
+                                <Label Grid.Row="1" FontFamily="{StaticResource Font.Normal}" TranslationX="{Binding Position}" Text="{Binding Content}" 
+                                       TextColor="#FFFFFF" Margin="24,8,24,24" FontSize="22" LineBreakMode="WordWrap"/>
+                            </Grid>
+                        </p:PancakeView>
+                    </Grid>
+                </DataTemplate>
+            </r:CarouselViewControl.ItemTemplate>
+        </r:CarouselViewControl>
+
+        <Button Grid.Row="2" Grid.Column="0" x:Name="SignUpButton" Text="Test" Command="{Binding SignUpCommand}" Margin="5"/>
+        <Button Grid.Row="2" Grid.Column="1" x:Name="SignInButton" Text="Options" Command="{Binding SignInCommand}" Margin="5" Style="{DynamicResource Style.Button.Main}"/>
+    </Grid>
+</c:ExtendedContentPage>

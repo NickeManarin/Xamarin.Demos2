@@ -1,0 +1,25 @@
+﻿<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:c="clr-namespace:TestApp.Converters;assembly=TestApp"
+             x:Class="TestApp.View.RegistrationSteps.AboutYouView"
+             x:Name="ThisView">
+
+    <ContentView.Resources>
+        <c:StringToCount x:Key="StringToCount"/>
+    </ContentView.Resources>
+
+    <Grid VerticalOptions="Center" Margin="20,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Text="About you" Margin="0,10,0,5" IsVisible="{Binding Source={x:Reference ThisView}, Path=Transient.IsPersonal}"/>
+        <Label Grid.Row="0" Text="About your company" Margin="0,10,0,5" IsVisible="{Binding Source={x:Reference ThisView}, Path=Transient.IsCorporative}"/>
+        <Editor Grid.Row="1" Text="{Binding About}" Placeholder="Tell us something..." HeightRequest="170"/>
+
+        <Label Grid.Row="2" Text="{Binding About, Converter={StaticResource StringToCount}, ConverterParameter='250.10'}" 
+               HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" Margin="0,5"/>
+    </Grid>
+</ContentView>

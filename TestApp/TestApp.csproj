@@ -1,0 +1,166 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CarouselView.FormsPlugin" Version="5.2.0" />
+    <PackageReference Include="DLToolkit.Forms.Controls.FlowListView" Version="2.0.11" />
+    <PackageReference Include="DLToolkit.Forms.Controls.ImageCropView" Version="1.0.7" />
+    <PackageReference Include="DLToolkit.Forms.Controls.TagEntryView" Version="1.0.5" />
+    <PackageReference Include="Forms.Controls.FlexButton" Version="0.9.1" />
+    <PackageReference Include="fusillade" Version="2.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.2.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.2.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.2.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="MLToolkit.Forms.SwipeCardView" Version="2.0.0" />
+    <PackageReference Include="NodaTime" Version="2.4.5" />
+    <PackageReference Include="Plugin.Permissions" Version="5.0.0-beta" />
+    <PackageReference Include="Polly" Version="7.1.0" />
+    <PackageReference Include="Refit" Version="4.7.9" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="1.1.5.188" />
+    <PackageReference Include="Sharpnado.Forms.HorizontalListView" Version="1.2.0" />
+    <PackageReference Include="Xam.Plugin.Connectivity" Version="3.2.0" />
+    <PackageReference Include="Xam.Plugin.Media" Version="4.0.1.5" />
+    <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.Forms" Version="4.1.0.581479" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.2.0" />
+    <PackageReference Include="Xamarin.Forms.GoogleMaps" Version="3.2.0" />
+    <PackageReference Include="Xamarin.Forms.PancakeView" Version="1.0.21" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resources\Localizations\" />
+    <Folder Include="Resources\Themes\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="View\Dialogs\ImageDialog.xaml.cs">
+      <DependentUpon>ImageDialog.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Controls\StatusBand.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Controls\StatusBand.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Resources\Icons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Resources\Localizations\Strings_en.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Resources\Localizations\Strings_pt.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Resources\Themes\Dark.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Resources\Themes\Light.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="View\Dialogs\EducationActionDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="View\Dialogs\EducationQuestionDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="View\Dialogs\EmailConfirmationDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="View\Dialogs\ExperienceActionDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="View\Dialogs\ImageDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="View\Dialogs\LocationDetailDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="View\Dialogs\LocationDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="View\Dialogs\ProfileListDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="View\MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="View\OptionsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="View\RegistrationSteps\AboutYouView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="View\RegistrationSteps\AddressView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="View\RegistrationSteps\BirthdayView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="View\RegistrationSteps\CompanyDetailView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="View\RegistrationSteps\DoneView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="View\RegistrationSteps\EducationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="View\RegistrationSteps\EmailPasswordView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="View\RegistrationSteps\ExperienceView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="View\RegistrationSteps\InterestsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="View\RegistrationSteps\LocationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="View\RegistrationSteps\NameView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="View\RegistrationSteps\PhotosView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="View\RegistrationSteps\ProcessingView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="View\SignInPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="View\SignUpPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="View\StartupPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="View\TestPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,27 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/TestApp/bin/Debug/netstandard2.0
+/TestApp/obj
+/TestApp/TestApp.csproj.user
+/TestApp.Android/obj
+/TestApp.Android/TestApp.Android.csproj.user
+/TestApp.iOS/obj
+/TestApp.Migration/obj
+/TestApp.Model.DataTransfer/bin/Debug/netstandard2.0
+/TestApp.Model.DataTransfer/obj
+/TestApp.UWP/obj
+/TestApp.Android/bin/Debug
+/TestApp.iOS/bin/iPhone/Debug
+/TestApp.Migration/bin/Debug/netcoreapp2.2
+/TestApp.UWP/bin/x86/Debug
+/TestApp.Api/bin/Debug/netcoreapp2.2
+/TestApp.Api/obj
+/TestApp.Api/TestApp.Api.csproj.user
+/TestApp.iOS/TestApp.iOS.csproj.user
+/TestApp.UWP/TestApp.UWP.csproj.user
+/TestApp/bin/Release/netstandard2.0
+/TestApp.Android/bin/Release
+/TestApp.Model.DataTransfer/bin/Release/netstandard2.0

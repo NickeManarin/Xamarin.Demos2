@@ -1,0 +1,23 @@
+﻿<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <!--To use a new line: &#x0d; xml:space="preserve"-->
+    <!--Or CarriageReturn + NewLine: &#x0d;&#x0a; or &#10;--> 
+    <!--Special texts like {0}, are place holders for dynamic values, such as numbers.-->
+
+    <!--Startup-->
+    <x:String x:Key="Icon.Camera">&#xE929;</x:String>
+    <x:String x:Key="Icon.Check">&#xE92D;</x:String>
+    <x:String x:Key="Icon.ChevronUp">&#xE931;</x:String>
+    <x:String x:Key="Icon.ChevronDown">&#xE92E;</x:String>
+    <x:String x:Key="Icon.Close">&#xEA0E;</x:String>
+    <x:String x:Key="Icon.Folder">&#xE96C;</x:String>
+    <x:String x:Key="Icon.Location">&#xE98F;</x:String>
+    <x:String x:Key="Icon.Login">&#xE98C;</x:String>
+    <x:String x:Key="Icon.Logout">&#xE98D;</x:String>
+    <x:String x:Key="Icon.Hash">&#xE978;</x:String>
+    <x:String x:Key="Icon.Plus">&#xE9BA;</x:String>
+    <x:String x:Key="Icon.Settings">&#xE9CB;</x:String>
+    <x:String x:Key="Icon.Trash">&#xE9EC;</x:String>
+    <x:String x:Key="Icon.Trash2">&#xE9EB;</x:String>
+</ResourceDictionary>
