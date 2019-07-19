@@ -24,7 +24,7 @@
                         <ContentView>
                             <Grid Margin="5" h:TapCommandEffect.Tap="{Binding BindingContext.SelectPhotoCommand, Source={x:Reference ThisView}}"
                                   h:TapCommandEffect.TapParameter="{Binding .}" h:ViewEffect.TouchFeedbackColor="{DynamicResource Color.Pictures.Border.Pressed}">
-                                <c:ExtendedFrame CornerRadius="10" StrokeDashLength="20" StrokeDashGap="9" StrokeThickness="10" 
+                                <c:ExtendedFrame CornerRadius="10" StrokeDashLength="20" StrokeDashGap="9" StrokeThickness="6" 
                                                  BorderColor="{DynamicResource Color.Pictures.Border}" IsClippedToBounds="True">
                                     <c:ExtendedFrame.Triggers>
                                         <DataTrigger Binding="{Binding Source={x:Reference DraggableViewCell}, Path=IsDragAndDropping}" TargetType="c:ExtendedFrame" Value="True">
@@ -34,7 +34,7 @@
 
                                     <f:CachedImage Aspect="AspectFit" DownsampleToViewSize="True" Source="{Binding ImageSource}" BitmapOptimizations="True" CacheType="Disk">
                                         <f:CachedImage.Transformations>
-                                            <t:RoundedTransformation Radius="10"/>
+                                            <t:RoundedTransformation Radius="50"/>
                                         </f:CachedImage.Transformations>
                                     </f:CachedImage>
                                 </c:ExtendedFrame>
